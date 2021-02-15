@@ -26,7 +26,7 @@ class DataController extends Controller
 
     public function store(Request $request)
     {
-        return $request;
+        // return $request;
         $data = Data::find(1);
 
         if(is_null($data)){
