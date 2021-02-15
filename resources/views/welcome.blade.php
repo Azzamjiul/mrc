@@ -51,9 +51,28 @@
 
             <div class="row">
                 <div class="topic topic-one col-md-5 col-md-offset-1">
-                    <h3>Imagine Quotes</h3>
-                    <button class="btn btn-secondary green" onclick="startAt(8,10.5)">"Play one"</button></br>
-                    <button class="btn btn-secondary green" onclick="startAt(20,22)">"Imagine what it is like..."</button>
+                    <h3>Notes</h3>
+                    <button class="btn btn-secondary green" onclick="startAt({{$data->start}},{{$data->end}})">"Play one"</button>
+                    <form action="{{ route('store') }}" method="POST">
+                        @csrf
+                        <div class="form-group">
+                            <label for="">Start at</label>
+                            <input type="text" name="start" class="form-control" value="{{$data->start}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="">End at</label>
+                            <input type="text" name="end" class="form-control" value="{{$data->end}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="">note</label>
+                            <textarea name="note" id="" cols="30" rows="3">
+                                {{$data->note}}
+                            </textarea>
+                        </div>
+                        <button type="submit">
+                            save
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
